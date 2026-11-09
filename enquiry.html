@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSS/main.css">
+        <!-- SEO settings for the Enquiry page -->
+<meta name="description" content="Contact Connect Tutors SA to enquire about tutoring opportunities, academic support and joining our tutoring community.">
+
+<meta name="keywords" content="tutoring enquiries, become a tutor, tutoring opportunities, Connect Tutors SA">
+
+<title>Enquiries | Connect Tutors SA</title>
+    </head>
+    
+    <body>
+        <header>
+            <link rel="stylesheet" href="CSS/style.css">
+<nav>
+    <ul>
+        <!--Navigation throughout all pages-->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+        </header>
+
+<br>
+<!--A form for volunteer tutors to fill in-->
+        <h1>Enquiry Form - Connect Tutors SA</h1>
+<h2>Enquiries</h2>
+        <form>
+            <table>
+                <tr>
+                    <td> <label for="fullname">Full Name:</label> </td>
+                    <td> <input type="text" id="fullname" name="fullname"> </td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="phone">Phone Number:</label></td>
+                    <td><input type="tel" id="phone" name="phone" pattern="{0-9}{10}"
+                    placeholder="e.g. 0123456789"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td><input type="date" id="dob" name="dob"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="subject">Subjects you can tutor:</label></td>
+                    <td><input
+                        type="subject"
+                        id="subject"
+                        name="subject you can tutor"
+                        minlength="15"
+                        pattern="(?=.*[a-z]).{15,}"
+                        aria-describedby="subjects to tutor"
+                        required
+                        ></td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- Social Media Footer -->
+        <footer>
+            <h3>Connect With Us</h3>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+
+            <p>&copy; 2026 Connect Tutors SA. All rights reserved.</p>
+        </footer>
+
+</body>

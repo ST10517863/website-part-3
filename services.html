@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!--Character encoding-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="BJavu">
+    <!-- SEO settings for the Services page -->
+<meta name="description" content="Explore Connect Tutors SA's tutoring services and find tutors in Mathematics, English, Physical Sciences and Life Sciences.">
+
+<meta name="keywords" content="tutoring services, Mathematics tutors, English tutors, Physical Sciences tutors, Life Sciences tutors, South Africa">
+
+<title>Our Services | Connect Tutors SA</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="CSS/main.css">
+    
+<!-- Leaflet Map Stylesheet -->
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+
+</head>
+<body>
+    <header>
+        <h1>CONNECTTUTORS SA</h1>
+
+        <!-- Off-page SEO: Planned backlink strategies through educational partnerships and online promotion. -->
+
+
+            <link rel="stylesheet" href="CSS/style.css">
+
+         <nav>
+            <ul>
+                 
+                 
+                   
+            </ul>
+         </nav>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+    </header>
+    <main>
+        <main>
+    <h1>Our Tutoring Services and Tutors</h1>
+
+    <section id="services">
+                <h2>Services Provided</h2>
+                <p>
+                    TutorsConnect SA offers free tutor matching, different learning style assesments, online tutoring sessions and educational resources.
+                    <br>
+                    This platform connects students to suitable tutors based on their academic need and learning techniques, which helps make quality educational support accesible to everyone.
+                </p>
+        </section>
+
+        <!--Clickable tutor profiles-->
+        <section id="tutors">
+            <h2>Meet our tutors</h2>
+            <p>Explore our tutors and their areas of expertise</p>
+            <div class="tutor-search">
+                <input
+                    type="text"
+                    id="tutor-search"
+                    placeholder="Search tutors by name or subject..."
+                >
+                <svg class="tutor-search-icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 4.5 4.5"></path>
+                </svg>
+            </div>
+
+            <div class="tutor-container">
+                
+                </div>
+
+            </div>
+        </section>
+
+        <!--Popup for tutor information-->
+        <div id="tutor-popup" class="tutor-popup" style="display: none;">
+            <div class="popup-content">
+                <button type="button" onclick="closeTutor()" class="close-button">
+                    Back
+                </button>
+                <h2 id="tutor-name"></h2>
+                <p id="tutor-subject"></p>
+                <p id="tutor-description"></p>
+<!--Booking appointment button-->
+
+                <button type="button" onclick="openBooking()" class="book-button">
+    Book Appointment
+</button>
+            </div>
+        </div>
+
+        <!--  Appointment Booking Form -->
+<div id="booking-popup" class="booking-popup" style="display: none;">
+    <div class="booking-content">
+
+        <button type="button" onclick="closeBooking()" class="close-button">
+            Back
+        </button>
+
+        <h2>Book an Appointment</h2>
+
+        <p>
+            Booking with:
+            <strong id="booking-tutor"></strong>
+        </p>
+
+        <form id="booking-form" novalidate>
+
+            <label for="booking-name">Full Name</label>
+            <input type="text"
+                   id="booking-name"
+                   name="name"
+                   placeholder="Enter your full name"
+                   aria-describedby="booking-name-error"
+                   required>
+            <span class="booking-error" id="booking-name-error" aria-live="polite"></span>
+
+            <label for="booking-email">Email Address</label>
+            <input type="email"
+                   id="booking-email"
+                   name="email"
+                   placeholder="Enter your email address"
+                   aria-describedby="booking-email-error"
+                   required>
+            <span class="booking-error" id="booking-email-error" aria-live="polite"></span>
+
+            <label for="booking-date">Preferred Date</label>
+            <input type="date"
+                   id="booking-date"
+                   name="date"
+                   aria-describedby="booking-date-error"
+                   required>
+            <span class="booking-error" id="booking-date-error" aria-live="polite"></span>
+
+            <label for="booking-time">Preferred Time</label>
+            <input type="time"
+                   id="booking-time"
+                   name="time"
+                   aria-describedby="booking-time-error"
+                   required>
+            <span class="booking-error" id="booking-time-error" aria-live="polite"></span>
+
+                   <!--Students can enter their preffered learning style-->
+            <label for="booking-message">Additional Information</label>
+            <textarea id="booking-message"
+                      name="message"
+                      rows="4"
+                      placeholder="Tell us anything the tutor should know"></textarea>
+
+            <button type="submit" class="book-button">
+                Confirm Booking
+            </button>
+
+            <!--A button for users to exit the form once they've booked the appointment-->
+            
+            <p id="booking-feedback"></p>
+
+<button type="button"
+        id="booking-done"
+        class="book-button"
+        style="display: none;"
+        onclick="closeBooking()">
+    Done
+</button>
+
+
+        </form>
+    </div>
+</div>
+        
+<!-- Frequently Asked Questions Section -->
+<section class="faq-section" id="faq">
+    <div class="faq-container">
+
+        <h2>Frequently Asked Questions</h2>
+        <p class="faq-intro">
+            Find answers to questions frequently asked about Connect Tutors SA.
+        </p>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How do I find a tutor?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Browse our available tutors and select one
+                    who matches your subject requirements and
+                    learning preferences.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Are the tutoring services free?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Connect Tutors SA aims to connect learners
+                    with tutors who offer accessible educational
+                    support, including free tutoring opportunities.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Which subjects are available?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Learners can find support in various subjects,
+                    depending on the tutors available on the platform.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I become a tutor?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Interested tutors can contact Connect Tutors SA
+                    through the enquiry page to express their
+                    interest in joining the platform.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--Interactive Map Section -->
+<section class="map-section" id="locations">
+
+    <div class="map-container">
+
+        <h2>Find Tutoring Support Across South Africa</h2>
+
+        <p>
+            Explore locations where learners can connect
+            with tutoring support.
+        </p>
+        <!--Map Display-->
+        <div id="tutor-map"></div>
+
+        
+<!-- Study Tips Generator Section -->
+<section class="study-tips-section">
+
+    <div class="study-tips-container">
+
+        <h2>Study Tips for Success</h2>
+
+        <p>
+            Need some study inspiration?
+            Click below to receive a helpful study tip.
+        </p>
+
+        <div id="study-tip">
+            Your study tip will appear here!
+        </div>
+
+        <button id="tip-button">
+            Get a Study Tip
+        </button>
+
+    </div>
+
+</section>
+
+<!--  Gallery Section -->
+<section class="gallery-section">
+
+    <div class="gallery-container">
+
+        <h2>Our Learning Community</h2>
+
+        <p>
+            Discover a community that encourages learning,
+            collaboration and academic growth.
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/students1.jpg.webp"
+                 alt="Students studying with tutor"
+                 class="gallery-image">
+
+            <img src="images/students2.jpg.jpg"
+                 alt="Students studying together"
+                 class="gallery-image">
+
+            <img src="images/students3.jpg.jpg"
+                 alt="Students studying independently"
+                 class="gallery-image">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Lightbox Container -->
+<div id="image-lightbox" class="lightbox">
+
+    <span class="lightbox-close">&times;</span>
+
+    <img class="lightbox-content" id="lightbox-image"
+         alt="Enlarged gallery image">
+
+</div>
+
+
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="js/app.js" defer></script>
+    <!-- Social Media Footer -->
+<footer>
+    <h3>Connect With Us</h3>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+
+    <p>&copy; 2026 Connect Tutors SA. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
